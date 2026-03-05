@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KWSC @ McNair — March 2026 Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mon: #FF6B6B;
+    --tue: #FF9F43;
+    --wed: #54A0FF;
+    --thu: #5F27CD;
+    --fri: #00D2D3;
+    --mon-light: #fff0f0;
+    --tue-light: #fff5e6;
+    --wed-light: #eef5ff;
+    --thu-light: #f0ebff;
+    --fri-light: #e6fafa;
+    --bg: #0f0f1a;
+    --card: #1a1a2e;
+    --card2: #16213e;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── ANIMATED BG ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(84,160,255,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 90%, rgba(255,107,107,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 60% 40%, rgba(95,39,205,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 40px 20px 32px;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF6B6B, #FF9F43);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF9F43 30%, #54A0FF 65%, #00D2D3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .header .chinese {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+  }
+  .notice-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,159,67,0.12);
+    border: 1px solid rgba(255,159,67,0.3);
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 12px;
+    color: #FF9F43;
+    font-weight: 600;
+    margin-top: 16px;
+    letter-spacing: 0.3px;
+  }
+  .notice-bar span { font-size: 16px; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px 0 24px;
+    flex-wrap: wrap;
+  }
+  .controls label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .week-select {
+    appearance: none;
+    background: var(--card2);
+    border: 1px solid rgba(84,160,255,0.3);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 36px 10px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2354A0FF' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    min-width: 220px;
+  }
+  .week-select:focus { outline: none; border-color: #54A0FF; box-shadow: 0 0 0 3px rgba(84,160,255,0.15); }
+  .view-all-btn {
+    background: linear-gradient(135deg, #54A0FF, #5F27CD);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .view-all-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(84,160,255,0.35); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ── GRID ── */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  /* ── DAY HEADER ── */
+  .day-header {
+    padding: 14px 10px 12px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+  }
+  .day-header.mon { background: linear-gradient(135deg, rgba(255,107,107,0.35), rgba(255,107,107,0.15)); color: #FF6B6B; border-bottom: 2px solid rgba(255,107,107,0.4); }
+  .day-header.tue { background: linear-gradient(135deg, rgba(255,159,67,0.35), rgba(255,159,67,0.15)); color: #FF9F43; border-bottom: 2px solid rgba(255,159,67,0.4); }
+  .day-header.wed { background: linear-gradient(135deg, rgba(84,160,255,0.35), rgba(84,160,255,0.15)); color: #54A0FF; border-bottom: 2px solid rgba(84,160,255,0.4); }
+  .day-header.thu { background: linear-gradient(135deg, rgba(95,39,205,0.35), rgba(95,39,205,0.15)); color: #a78bfa; border-bottom: 2px solid rgba(95,39,205,0.4); }
+  .day-header.fri { background: linear-gradient(135deg, rgba(0,210,211,0.35), rgba(0,210,211,0.15)); color: #00D2D3; border-bottom: 2px solid rgba(0,210,211,0.4); }
+
+  .day-header .day-name { font-size: 15px; }
+  .day-header .day-cn { font-size: 10px; opacity: 0.7; margin-top: 1px; font-weight: 600; letter-spacing: 1px; }
+
+  /* ── WEEK ROWS ── */
+  .week-row { display: contents; }
+  .week-row.hidden { display: none; }
+
+  /* ── WEEK LABEL ── */
+  .week-label-row { display: contents; }
+  .week-label {
+    grid-column: 1 / -1;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .week-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ── DAY CELL ── */
+  .day-cell {
+    background: var(--card);
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 140px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .day-cell:last-child { border-right: none; }
+  .day-cell.mon { border-left: 3px solid rgba(255,107,107,0.3); }
+  .day-cell.tue { border-left: 3px solid rgba(255,159,67,0.3); }
+  .day-cell.wed { border-left: 3px solid rgba(84,160,255,0.3); }
+  .day-cell.thu { border-left: 3px solid rgba(95,39,205,0.3); }
+  .day-cell.fri { border-left: 3px solid rgba(0,210,211,0.3); }
+  .day-cell.empty { background: rgba(255,255,255,0.01); }
+  .day-cell.focused {
+    background: rgba(255,255,255,0.05);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  /* ── ACTIVITY CARD ── */
+  .activity {
+    border-radius: 10px;
+    padding: 8px 9px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+    overflow: visible;
+    z-index: 1;
+  }
+  .activity:hover {
+    transform: translateY(-3px) scale(1.02);
+    z-index: 100;
+  }
+  .activity.mon { background: linear-gradient(135deg, rgba(255,107,107,0.18), rgba(255,107,107,0.08)); border: 1px solid rgba(255,107,107,0.25); }
+  .activity.mon:hover { box-shadow: 0 8px 28px rgba(255,107,107,0.35); border-color: rgba(255,107,107,0.6); }
+  .activity.tue { background: linear-gradient(135deg, rgba(255,159,67,0.18), rgba(255,159,67,0.08)); border: 1px solid rgba(255,159,67,0.25); }
+  .activity.tue:hover { box-shadow: 0 8px 28px rgba(255,159,67,0.35); border-color: rgba(255,159,67,0.6); }
+  .activity.wed { background: linear-gradient(135deg, rgba(84,160,255,0.18), rgba(84,160,255,0.08)); border: 1px solid rgba(84,160,255,0.25); }
+  .activity.wed:hover { box-shadow: 0 8px 28px rgba(84,160,255,0.35); border-color: rgba(84,160,255,0.6); }
+  .activity.thu { background: linear-gradient(135deg, rgba(95,39,205,0.18), rgba(95,39,205,0.08)); border: 1px solid rgba(95,39,205,0.3); }
+  .activity.thu:hover { box-shadow: 0 8px 28px rgba(95,39,205,0.4); border-color: rgba(95,39,205,0.7); }
+  .activity.fri { background: linear-gradient(135deg, rgba(0,210,211,0.18), rgba(0,210,211,0.08)); border: 1px solid rgba(0,210,211,0.25); }
+  .activity.fri:hover { box-shadow: 0 8px 28px rgba(0,210,211,0.35); border-color: rgba(0,210,211,0.6); }
+
+  .activity-name {
+    font-size: 11.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text);
+  }
+  .activity-cn {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 1px;
+    line-height: 1.3;
+  }
+  .activity-time {
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 3px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .activity.mon .activity-time { color: #FF6B6B; }
+  .activity.tue .activity-time { color: #FF9F43; }
+  .activity.wed .activity-time { color: #54A0FF; }
+  .activity.thu .activity-time { color: #a78bfa; }
+  .activity.fri .activity-time { color: #00D2D3; }
+
+  .activity-venue {
+    font-size: 9.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.2s, max-height 0.2s;
+  }
+  .activity:hover .activity-venue {
+    opacity: 1;
+    max-height: 30px;
+  }
+  .activity-reg {
+    font-size: 9px;
+    color: rgba(255,200,100,0.7);
+    margin-top: 2px;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .activity:hover .activity-reg { opacity: 1; }
+
+  /* ── TOOLTIP ── */
+  .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20,20,35,0.97);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 14px;
+    min-width: 180px;
+    max-width: 220px;
+    z-index: 999;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    pointer-events: none;
+    backdrop-filter: blur(20px);
+  }
+  .activity:hover .tooltip { display: block; }
+  .tooltip-title { font-size: 12px; font-weight: 700; color: white; margin-bottom: 6px; line-height: 1.3; }
+  .tooltip-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .tooltip-row span:first-child { font-size: 13px; }
+
+  /* ── DATE CHIP ── */
+  .date-chip {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
+  .footer-notes {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .note-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .note-card strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 13px; }
+  .note-card .zh { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+    .day-header.thu, .day-cell.thu { display: none; }
+    .day-header.fri, .day-cell.fri { display: none; }
+  }
+  @media (max-width: 520px) {
+    .schedule-grid { grid-template-columns: 1fr 1fr; }
+    .day-header.wed, .day-cell.wed { display: none; }
+  }
+
+  /* ── PULSE ANIMATION ── */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(84,160,255,0); }
+    50% { box-shadow: 0 0 0 4px rgba(84,160,255,0.15); }
+  }
+  .activity.special { animation: pulse-glow 2.5s ease infinite; }
+
+  /* ── FADE IN ── */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .day-cell { animation: fadeSlideUp 0.5s ease both; }
+  .day-cell:nth-child(5n+1) { animation-delay: 0.05s; }
+  .day-cell:nth-child(5n+2) { animation-delay: 0.10s; }
+  .day-cell:nth-child(5n+3) { animation-delay: 0.15s; }
+  .day-cell:nth-child(5n+4) { animation-delay: 0.20s; }
+  .day-cell:nth-child(5n+5) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-badge">🏥 Kwong Wai Shiu Hospital</div>
+    <h1>KWSC @ McNair<br>March 2026</h1>
+    <div class="subtitle">Active Ageing Programme Schedule · 三月活动表</div>
+    <div class="chinese">联络号码: 6422 1311 &nbsp;|&nbsp; 8028 1247</div>
+    <div class="notice-bar"><span>🍽️</span> Closed during lunch · 午餐时间关闭 · 12PM – 1PM</div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <label>View Week:</label>
+    <select class="week-select" id="weekSelect" onchange="filterWeek(this.value)">
+      <option value="all">📅 All Weeks — Full Month</option>
+      <option value="1">Week 1 · Mar 2 – 7</option>
+      <option value="2">Week 2 · Mar 9 – 14</option>
+      <option value="3">Week 3 · Mar 17 – 21</option>
+      <option value="4">Week 4 · Mar 24 – 28</option>
+      <option value="5">Week 5 · Mar 30 – 31</option>
+    </select>
+    <button class="view-all-btn" onclick="filterWeek('all')">Show All</button>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#FF6B6B"></div>Monday</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF9F43"></div>Tuesday</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#54A0FF"></div>Wednesday</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>Thursday</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#00D2D3"></div>Friday</div>
+  </div>
+
+  <!-- SCHEDULE GRID -->
+  <div class="schedule-grid" id="grid">
+
+    <!-- DAY HEADERS -->
+    <div class="day-header mon"><div class="day-name">Monday</div><div class="day-cn">星期一</div></div>
+    <div class="day-header tue"><div class="day-name">Tuesday</div><div class="day-cn">星期二</div></div>
+    <div class="day-header wed"><div class="day-name">Wednesday</div><div class="day-cn">星期三</div></div>
+    <div class="day-header thu"><div class="day-name">Thursday</div><div class="day-cn">星期四</div></div>
+    <div class="day-header fri"><div class="day-name">Friday</div><div class="day-cn">星期五</div></div>
+
+    <!-- ═══════════ WEEK 1 ═══════════ -->
+    <div class="week-label" data-week="1">Week 1 &nbsp;·&nbsp; 2–7 March 2026</div>
+
+    <!-- MON 02/03 -->
+    <div class="day-cell mon" data-week="1">
+      <div class="date-chip">02 Mar</div>
+      <div class="activity mon special">
+        <div class="activity-name">Daily Socialising Activities</div>
+        <div class="activity-cn">每日社交活动</div>
+        <div class="activity-time">🕐 All day</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Daily Socialising Activities</div>
+          <div class="tooltip-row"><span>🕐</span> All Day</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity mon">
+        <div class="activity-name">SOTA Student Engagement</div>
+        <div class="activity-cn">新加坡艺术学院</div>
+        <div class="activity-time">🕐 3.15–4.45pm</div>
+        <div class="activity-venue">📍 McNair Centre</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">SOTA Student Engagement</div>
+          <div class="tooltip-row"><span>🕒</span> 3.15pm – 4.45pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE 03/03 -->
+    <div class="day-cell tue" data-week="1">
+      <div class="date-chip">03 Mar</div>
+      <div class="activity tue">
+        <div class="activity-name">Chair Exercise</div>
+        <div class="activity-cn">椅子运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.30–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED 04/03 -->
+    <div class="day-cell wed" data-week="1">
+      <div class="date-chip">04 Mar</div>
+      <div class="activity wed">
+        <div class="activity-name">Chair Zumba</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 113 Indoor</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 113 Indoor</div>
+        </div>
+      </div>
+      <div class="activity wed">
+        <div class="activity-name">Ukulele Class</div>
+        <div class="activity-cn">尤克里里</div>
+        <div class="activity-time">🕐 2.00–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Ukulele Class 尤克里里</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THU 05/03 -->
+    <div class="day-cell thu" data-week="1">
+      <div class="date-chip">05 Mar</div>
+      <div class="activity thu">
+        <div class="activity-name">Low Impact Aerobics (HPB)</div>
+        <div class="activity-cn">低冲击有氧运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Low Impact Aerobics (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+      <div class="activity thu">
+        <div class="activity-name">Sand Art Air Plant Terrarium</div>
+        <div class="activity-cn">彩砂空气草盆景</div>
+        <div class="activity-time">🕐 2–4pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Sand Art Air Plant Terrarium</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 4:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI 06/03 -->
+    <div class="day-cell fri" data-week="1">
+      <div class="date-chip">06 Mar</div>
+      <div class="activity fri">
+        <div class="activity-name">Chair Zumba (HPB)</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">BINGO</div>
+        <div class="activity-cn">宾果游戏</div>
+        <div class="activity-time">🕐 1.30–2.30pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">BINGO 宾果游戏</div>
+          <div class="tooltip-row"><span>🕑</span> 1:30pm – 2:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.45–4.15pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:45pm – 4:15pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ WEEK 2 ═══════════ -->
+    <div class="week-label" data-week="2">Week 2 &nbsp;·&nbsp; 9–14 March 2026</div>
+
+    <!-- MON 09/03 -->
+    <div class="day-cell mon" data-week="2">
+      <div class="date-chip">09 Mar</div>
+      <div class="activity mon">
+        <div class="activity-name">Resistance Band Exercise</div>
+        <div class="activity-cn">拉力带运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Resistance Band Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity mon special">
+        <div class="activity-name">Daily Socialising Activities</div>
+        <div class="activity-cn">每日社交活动</div>
+        <div class="activity-time">🕐 All day</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Daily Socialising Activities</div>
+          <div class="tooltip-row"><span>🕐</span> All Day</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE 10/03 -->
+    <div class="day-cell tue" data-week="2">
+      <div class="date-chip">10 Mar</div>
+      <div class="activity tue">
+        <div class="activity-name">Fitness Exercise</div>
+        <div class="activity-cn">健身运动</div>
+        <div class="activity-time">🕐 9–10am</div>
+        <div class="activity-venue">📍 Blk 122 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Fitness Exercise 健身运动</div>
+          <div class="tooltip-row"><span>🕘</span> 9:00am – 10:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 122 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">Chair Exercise</div>
+        <div class="activity-cn">椅子运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.30–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED 11/03 -->
+    <div class="day-cell wed" data-week="2">
+      <div class="date-chip">11 Mar</div>
+      <div class="activity wed">
+        <div class="activity-name">Chair Zumba</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 113 Indoor</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 113 Indoor</div>
+        </div>
+      </div>
+      <div class="activity wed special">
+        <div class="activity-name">Drum Alive (Trial Class)</div>
+        <div class="activity-time">🕐 10am–11.30am</div>
+        <div class="activity-venue">📍 KWSC @ SG</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">🥁 Drum Alive Trial Class</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:30am</div>
+          <div class="tooltip-row"><span>📍</span> KWSC @ SG</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THU 12/03 -->
+    <div class="day-cell thu" data-week="2">
+      <div class="date-chip">12 Mar</div>
+      <div class="activity thu">
+        <div class="activity-name">Low Impact Aerobics (HPB)</div>
+        <div class="activity-cn">低冲击有氧运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Low Impact Aerobics (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity thu special">
+        <div class="activity-name">HAPPY Programme</div>
+        <div class="activity-cn">Pre-MoCA</div>
+        <div class="activity-time">🕐 1–2pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">HAPPY Programme (Pre-MoCA)</div>
+          <div class="tooltip-row"><span>🕐</span> 1:00pm – 2:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity thu special">
+        <div class="activity-name">HAPPY Programme</div>
+        <div class="activity-time">🕐 2–3pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">HAPPY Programme</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 3:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity thu">
+        <div class="activity-name">TCM Talk: Health Soup</div>
+        <div class="activity-cn">中医讲座</div>
+        <div class="activity-time">🕐 3–5pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">TCM Talk: Health Soup 中医讲座</div>
+          <div class="tooltip-row"><span>🕒</span> 3:00pm – 5:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI 13/03 -->
+    <div class="day-cell fri" data-week="2">
+      <div class="date-chip">13 Mar</div>
+      <div class="activity fri">
+        <div class="activity-name">Chair Zumba (HPB)</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">BINGO</div>
+        <div class="activity-cn">宾果游戏</div>
+        <div class="activity-time">🕐 1.30–2.30pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">BINGO 宾果游戏</div>
+          <div class="tooltip-row"><span>🕑</span> 1:30pm – 2:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.45–4.15pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:45pm – 4:15pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ WEEK 3 ═══════════ -->
+    <div class="week-label" data-week="3">Week 3 &nbsp;·&nbsp; 17–21 March 2026</div>
+
+    <!-- MON 17/03 -->
+    <div class="day-cell mon" data-week="3">
+      <div class="date-chip">17 Mar</div>
+      <div class="activity mon">
+        <div class="activity-name">Community Health Post (TTSH)</div>
+        <div class="activity-cn">社区护士站</div>
+        <div class="activity-time">🕐 2–5pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Community Health Post (TTSH)</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 5:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+      <div class="activity mon special">
+        <div class="activity-name">Feb Birthday King & Queen</div>
+        <div class="activity-cn">国王后的生日 (二月)</div>
+        <div class="activity-time">🕐 2.30–4.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">🎂 Feb Birthday King & Queen</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 4:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE 18/03 -->
+    <div class="day-cell tue" data-week="3">
+      <div class="date-chip">18 Mar</div>
+      <div class="activity tue">
+        <div class="activity-name">Fitness Exercise</div>
+        <div class="activity-cn">健身运动</div>
+        <div class="activity-time">🕐 9–10am</div>
+        <div class="activity-venue">📍 Blk 122 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Fitness Exercise</div>
+          <div class="tooltip-row"><span>🕘</span> 9:00am – 10:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 122 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">Chair Exercise</div>
+        <div class="activity-cn">椅子运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.30–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED 19/03 -->
+    <div class="day-cell wed" data-week="3">
+      <div class="date-chip">19 Mar (18/03 actual)</div>
+      <div class="activity wed">
+        <div class="activity-name">Chair Zumba</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 113 Indoor</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 113 Indoor</div>
+        </div>
+      </div>
+      <div class="activity wed special">
+        <div class="activity-name">SG Digital (IMDA)</div>
+        <div class="activity-cn">数码科技</div>
+        <div class="activity-time">🕐 10am–12pm (Group)</div>
+        <div class="activity-venue">📍 1-to-1: 1–4pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">SG Digital (IMDA) 数码科技</div>
+          <div class="tooltip-row"><span>🕙</span> Group: 10:00am – 12:00pm</div>
+          <div class="tooltip-row"><span>🕐</span> 1-to-1: 1:00pm – 4:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity wed">
+        <div class="activity-name">Ukulele Class</div>
+        <div class="activity-cn">尤克里里</div>
+        <div class="activity-time">🕐 2.00–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Ukulele Class 尤克里里</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THU 19/03 -->
+    <div class="day-cell thu" data-week="3">
+      <div class="date-chip">19 Mar</div>
+      <div class="activity thu">
+        <div class="activity-name">Low Impact Aerobics (HPB)</div>
+        <div class="activity-cn">低冲击有氧运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Low Impact Aerobics (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity thu special">
+        <div class="activity-name">HAPPY Programme</div>
+        <div class="activity-time">🕐 2–3pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">HAPPY Programme</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 3:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI 20/03 -->
+    <div class="day-cell fri" data-week="3">
+      <div class="date-chip">20 Mar</div>
+      <div class="activity fri">
+        <div class="activity-name">Chair Zumba (HPB)</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">BINGO</div>
+        <div class="activity-cn">宾果游戏</div>
+        <div class="activity-time">🕐 1.30–2.30pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">BINGO 宾果游戏</div>
+          <div class="tooltip-row"><span>🕑</span> 1:30pm – 2:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.45–4.15pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:45pm – 4:15pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ WEEK 4 ═══════════ -->
+    <div class="week-label" data-week="4">Week 4 &nbsp;·&nbsp; 24–28 March 2026</div>
+
+    <!-- MON 24/03 -->
+    <div class="day-cell mon" data-week="4">
+      <div class="date-chip">24 Mar</div>
+      <div class="activity mon">
+        <div class="activity-name">Resistance Band Exercise</div>
+        <div class="activity-cn">拉力带运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Resistance Band Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity mon special">
+        <div class="activity-name">Daily Socialising Activities</div>
+        <div class="activity-cn">每日社交活动</div>
+        <div class="activity-time">🕐 All day</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Daily Socialising Activities</div>
+          <div class="tooltip-row"><span>🕐</span> All Day</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE 25/03 -->
+    <div class="day-cell tue" data-week="4">
+      <div class="date-chip">25 Mar</div>
+      <div class="activity tue">
+        <div class="activity-name">Fitness Exercise</div>
+        <div class="activity-cn">健身运动</div>
+        <div class="activity-time">🕐 9–10am</div>
+        <div class="activity-venue">📍 Blk 122 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Fitness Exercise</div>
+          <div class="tooltip-row"><span>🕘</span> 9:00am – 10:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 122 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">Chair Exercise</div>
+        <div class="activity-cn">椅子运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.30–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED 25/03 -->
+    <div class="day-cell wed" data-week="4">
+      <div class="date-chip">25 Mar</div>
+      <div class="activity wed">
+        <div class="activity-name">Chair Zumba</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 113 Indoor</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 113 Indoor</div>
+        </div>
+      </div>
+      <div class="activity wed special">
+        <div class="activity-name">Daily Socialising Activities</div>
+        <div class="activity-cn">每日社交活动</div>
+        <div class="activity-time">🕐 All day</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Daily Socialising Activities</div>
+          <div class="tooltip-row"><span>🕐</span> All Day</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THU 26/03 -->
+    <div class="day-cell thu" data-week="4">
+      <div class="date-chip">26 Mar</div>
+      <div class="activity thu">
+        <div class="activity-name">Low Impact Aerobics (HPB)</div>
+        <div class="activity-cn">低冲击有氧运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Low Impact Aerobics (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity thu special">
+        <div class="activity-name">HAPPY Programme</div>
+        <div class="activity-time">🕐 2–3pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">HAPPY Programme</div>
+          <div class="tooltip-row"><span>🕑</span> 2:00pm – 3:00pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI 27/03 -->
+    <div class="day-cell fri" data-week="4">
+      <div class="date-chip">27 Mar</div>
+      <div class="activity fri">
+        <div class="activity-name">Chair Zumba (HPB)</div>
+        <div class="activity-cn">座椅尊巴</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="activity-venue">📍 Blk 114 Pavilion</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Zumba (HPB)</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 114 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">BINGO</div>
+        <div class="activity-cn">宾果游戏</div>
+        <div class="activity-time">🕐 1.30–2.30pm</div>
+        <div class="tooltip">
+          <div class="tooltip-title">BINGO 宾果游戏</div>
+          <div class="tooltip-row"><span>🕑</span> 1:30pm – 2:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity fri">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.45–4.15pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:45pm – 4:15pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ WEEK 5 ═══════════ -->
+    <div class="week-label" data-week="5">Week 5 &nbsp;·&nbsp; 30–31 March 2026</div>
+
+    <!-- MON 30/03 -->
+    <div class="day-cell mon" data-week="5">
+      <div class="date-chip">30 Mar</div>
+      <div class="activity mon special">
+        <div class="activity-name">Daily Socialising Activities</div>
+        <div class="activity-cn">每日社交活动</div>
+        <div class="activity-time">🕐 All day</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Daily Socialising Activities</div>
+          <div class="tooltip-row"><span>🕐</span> All Day</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity mon">
+        <div class="activity-name">SOTA Student Engagement</div>
+        <div class="activity-cn">新加坡艺术学院</div>
+        <div class="activity-time">🕐 3.15–4.45pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">SOTA Student Engagement</div>
+          <div class="tooltip-row"><span>🕒</span> 3:15pm – 4:45pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE 31/03 -->
+    <div class="day-cell tue" data-week="5">
+      <div class="date-chip">31 Mar</div>
+      <div class="activity tue">
+        <div class="activity-name">Fitness Exercise</div>
+        <div class="activity-cn">健身运动</div>
+        <div class="activity-time">🕐 9–10am</div>
+        <div class="activity-venue">📍 Blk 122 Pavilion</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Fitness Exercise</div>
+          <div class="tooltip-row"><span>🕘</span> 9:00am – 10:00am</div>
+          <div class="tooltip-row"><span>📍</span> Blk 122 Pavilion</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">Chair Exercise</div>
+        <div class="activity-cn">椅子运动</div>
+        <div class="activity-time">🕐 10–11am</div>
+        <div class="tooltip">
+          <div class="tooltip-title">Chair Exercise</div>
+          <div class="tooltip-row"><span>🕙</span> 10:00am – 11:00am</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue">
+        <div class="activity-name">NUS Student Engagement</div>
+        <div class="activity-cn">国大学生交流活动</div>
+        <div class="activity-time">🕐 2.30–3.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">NUS Student Engagement</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 3:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+        </div>
+      </div>
+      <div class="activity tue special">
+        <div class="activity-name">March Birthday King & Queen</div>
+        <div class="activity-cn">国王后的生日 (三月)</div>
+        <div class="activity-time">🕐 2.30–4.30pm</div>
+        <div class="activity-reg">⚠️ By registration</div>
+        <div class="tooltip">
+          <div class="tooltip-title">🎂 March Birthday King & Queen</div>
+          <div class="tooltip-row"><span>🕑</span> 2:30pm – 4:30pm</div>
+          <div class="tooltip-row"><span>📍</span> McNair Centre</div>
+          <div class="tooltip-row"><span>✏️</span> By registration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED, THU, FRI — empty for week 5 -->
+    <div class="day-cell wed empty" data-week="5"></div>
+    <div class="day-cell thu empty" data-week="5"></div>
+    <div class="day-cell fri empty" data-week="5"></div>
+
+  </div><!-- end grid -->
+
+  <!-- FOOTER NOTES -->
+  <div class="footer-notes">
+    <div class="note-card">
+      <strong>📍 Venue</strong>
+      All activities are held at McNair Centre unless otherwise stated.
+      <div class="zh">除非另有说明，所有活动均在 McNair 中心举行</div>
+    </div>
+    <div class="note-card">
+      <strong>📝 Registration</strong>
+      Activity registration is open 1 week in advance: Mon–Fri, 9am–5pm.
+      <div class="zh">本中心活动报名时间只在一个礼拜前开始：星期一 至 星期五，早上9点 至 下午5点</div>
+    </div>
+    <div class="note-card">
+      <strong>🧠 Cognitive Games</strong>
+      Cognitive Games at Centre every Mon–Fri.
+      <div class="zh">认知游戏在中心 | 每星期一 至 星期五</div>
+    </div>
+  </div>
+
+</div><!-- end wrapper -->
+
+<script>
+  function filterWeek(value) {
+    const labels = document.querySelectorAll('.week-label');
+    const cells = document.querySelectorAll('[data-week]');
+    
+    if (value === 'all') {
+      cells.forEach(el => el.style.display = '');
+      labels.forEach(el => el.style.display = '');
+    } else {
+      cells.forEach(el => {
+        if (el.dataset.week === value) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+    document.getElementById('weekSelect').value = value;
+  }
+</script>
+</body>
+</html>
